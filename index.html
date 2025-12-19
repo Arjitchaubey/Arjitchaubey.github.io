@@ -80,7 +80,7 @@
                 </div>
                 <div class="md:hidden flex items-center">
                      <button id="theme-toggle-mobile" class="mr-2 p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
-                        </button>
+                    </button>
                     <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
                     </button>
@@ -103,7 +103,7 @@
         <section id="home" class="section active">
             <div class="text-center py-16">
                 <h1 class="text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Arjit Chaubey</h1>
-                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-400">B.Tech ECE (VLSI Design) Student | Class of 2027 | CGPA: 9.4/10</p>
+                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-400">Aspiring VLSI Design Engineer | Class of 2027 | CGPA: 9.4/10</p>
                 <div class="mt-8 max-w-2xl mx-auto text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                     <p>Passionate ECE undergraduate with hands-on experience in RTL design, Verilog coding, and digital system simulation. Strong interest in ASIC design flows and physical design. Actively seeking internships as a front-end VLSI design engineer to apply and expand my skills in chip design.</p>
                 </div>
@@ -117,7 +117,7 @@
         <section id="projects" class="section">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Projects</h2>
-                <p class="mt-2 text-lg text-slate-600 dark:text-slate-400">A selection of my work in hardware design, device physics, and machine learning.</p>
+                <p class="mt-2 text-lg text-slate-600 dark:text-slate-400">A selection of my work in hardware design, machine learning, and device characterization.</p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -125,7 +125,7 @@
                     <img class="h-48 w-full object-cover" src="assets/NMOS_Structure.png" alt="NMOS Structure Thumbnail">
                     <div class="p-6">
                         <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">28nm HKMG NMOS Characterization</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">Physics-based modeling and PDK calibration of a 28nm NMOS transistor using the Synopsys TCAD Suite.</p>
+                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">Physics-based modeling and PDK calibration of a 28nm HKMG NMOS transistor using the Synopsys TCAD Suite.</p>
                         <a href="#" onclick="showSection('project-tcad')" class="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">View Case Study &rarr;</a>
                     </div>
                 </div>
@@ -162,18 +162,18 @@
                 <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
                 <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">28nm HKMG NMOS Characterization & PDK Calibration</h2>
                 <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300 max-w-none">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <img class="rounded-lg shadow-md" src="assets/NMOS_Structure.png" alt="NMOS Structure">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <img class="rounded-lg shadow-md" src="assets/NMOS_Structure.png" alt="NMOS Structure Detail">
                         <img class="rounded-lg shadow-md" src="assets/NMOS_Doping_Zoom.png" alt="NMOS Doping Profile">
                     </div>
-                    
+
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
-                    <p>Developed a physics-based model of a 28nm HKMG NMOS transistor using the Synopsys TCAD Suite. The project involved implementing Density Gradient Quantization and Trap-Assisted Tunneling models to simulate sub-micron behavior accurately[cite: 36, 38].</p>
-                    
+                    <p>Developed a physics-based model of a 28nm High-K Metal Gate (HKMG) NMOS transistor using the Synopsys TCAD Suite. The project implemented Density Gradient Quantization and Trap-Assisted Tunneling models to simulate sub-micron behavior accurately[cite: 38].</p>
+
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
                     <ul>
                         <li><strong>DC Calibration:</strong> Performed calibration against a reference PDK model, tuning Philips Unified Mobility (PhuMob) and saturation velocity parameters to achieve >95% agreement in subthreshold and saturation regions[cite: 39].</li>
-                        <li><strong>AC Analysis:</strong> Executed Small-Signal Analysis (1 MHz) to extract Gate Capacitance ($C_{gg}$) curves, successfully verifying Accumulation, Depletion, and Inversion regions[cite: 40].</li>
+                        <li><strong>AC Analysis:</strong> Executed Small-Signal Analysis (1 MHz) to extract Gate Capacitance ($C_{gg}$) curves, verifying Accumulation, Depletion, and Inversion regions[cite: 40].</li>
                     </ul>
 
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Simulation Results</h3>
@@ -194,13 +194,14 @@
                     <img class="rounded-lg shadow-lg mb-8" src="assets/riscv_schematic.png" alt="RISC-V Device Schematic">
                     
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
-                    <p>This project involved architecting and implementing a 32-bit, 5-stage pipelined RISC-V processor from the ground up in Verilog. The design supports a key subset of the ISA including R, I, S, U, and J-type instructions, making it capable of running meaningful programs[cite: 19, 21].</p>
+                    <p>This project involved architecting and implementing a 32-bit, 5-stage pipelined RISC-V processor (RV32I) from the ground up in Verilog[cite: 19, 21]. The design supports a key subset of the ISA including R, I, S, U, and J-type instructions[cite: 21].</p>
                     
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
                     <ul>
                         <li><strong>Architecture:</strong> Engineered a modular design that includes dedicated hazard detection and control units to resolve data and control hazards, ensuring correct program execution and minimizing pipeline stalls[cite: 24].</li>
-                        <li><strong>Performance:</strong> Synthesized the design at 100 MHz clock frequency, achieving timing closure with a Worst Negative Slack (WNS) of 4.472 ns, indicating a theoretical max frequency of ~180 MHz[cite: 22].</li>
-                        <li><strong>Optimization:</strong> Analyzed post-implementation metrics, optimizing for 142 mW power consumption and ~1.5k FF resource utilization[cite: 23].</li>
+                        <li><strong>Verification:</strong> Verified functional correctness by simulating its execution of a pre-compiled `program.hex` test file[cite: 21].</li>
+                        <li><strong>Implementation:</strong> Synthesized at 100 MHz clock frequency[cite: 22]. Achieved timing closure with a positive Worst Negative Slack (WNS) of 4.472 ns, confirming a theoretical max frequency of ~180 MHz[cite: 22].</li>
+                        <li><strong>Optimization:</strong> Optimized for 142 mW power and ~1.5k FF resource utilization[cite: 23].</li>
                     </ul>
 
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Challenges & Solutions</h3>
@@ -228,18 +229,18 @@
         <section id="project-cnn" class="section">
             <div class="max-w-4xl mx-auto">
                 <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">CNN Accelerator & Verification</h2>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">CNN Accelerator & Golden Reference Verification</h2>
                  <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300 max-w-none">
                     <img class="rounded-lg shadow-lg mb-8" src="assets/cnn_accelerator_schematic.png" alt="CNN Accelerator Schematic">
 
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
-                    <p>This project demonstrates a complete hardware design and verification flow, a critical skill in the semiconductor industry. I designed a Verilog-based hardware accelerator for CNN operations and rigorously tested it using a "golden reference" model written in Python[cite: 25, 28].</p>
+                    <p>Designed a Verilog-based hardware accelerator for CNN operations and rigorously tested it using a "golden reference" model written in Python[cite: 25, 28].</p>
                     
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
                     <ul>
-                        <li><strong>SIMD Architecture:</strong> Designed a SIMD-style convolution engine with 9 parallel MAC units for high-throughput 3x3 feature extraction[cite: 27].</li>
-                        <li><strong>Quantization:</strong> Implemented a software-based quantization model in Python to convert 32-bit floating-point weights to 8-bit integers (uint8), bridging software ML and hardware[cite: 30].</li>
-                        <li><strong>Verification Framework:</strong> Created a Verilog testbench that read the test vectors from the Python model and automatically compared the hardware's output against the golden reference, flagging mismatches[cite: 28].</li>
+                        <li><strong>Architecture:</strong> Designed a SIMD-style convolution engine with 9 parallel MAC units for high-throughput 3x3 feature extraction.</li>
+                        <li><strong>Quantization:</strong> Implemented a software-based quantization model in Python to convert 32-bit floating-point weights to 8-bit integers (uint8), bridging software ML models and hardware implementation[cite: 30].</li>
+                        <li><strong>Verification:</strong> Created a Verilog testbench that compared hardware output against a Python-based golden reference, flagging any mismatches[cite: 28].</li>
                     </ul>
 
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Challenges & Solutions</h3>
@@ -247,6 +248,10 @@
                         <li>
                             <strong>Challenge:</strong> The data flow logic within the convolution engine and output buffer was complex. Ensuring the hardware could correctly process streaming data without errors was difficult to conceptualize initially.
                             <br><strong>Solution:</strong> I carefully studied the data flow requirements and planned the FSM control logic before implementation. This allowed me to build a robust state machine that managed the data path correctly.
+                        </li>
+                        <li>
+                            <strong>Challenge:</strong> Verifying that the hardware was truly cycle-accurate and bit-perfect compared to the high-level Python model.
+                            <br><strong>Solution:</strong> I implemented a systematic, multi-stage verification strategy. First, I performed sanity checks with simple, self-created `.hex` files. Then, I used the Python script to generate complex, realistic test vectors from the MNIST dataset. By replacing the simple inputs with these "golden" inputs in my testbench, I could definitively prove the hardware's correctness.
                         </li>
                     </ul>
                     
@@ -268,20 +273,27 @@
                     <img class="rounded-lg shadow-lg mb-8" src="assets/classifier_output.png" alt="MNIST Classifier Output Detail">
 
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
-                    <p>This project showcases my skills in machine learning and software integration. It served as the motivational basis for my hardware acceleration projects by demonstrating the computational demands of neural networks[cite: 31].</p>
+                    <p>Designed and implemented a machine learning model that classifies handwritten digits from the MNIST dataset using a CNN and reproduces the identified digit through audio output[cite: 31, 33].</p>
                     
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
                     <ul>
-                        <li><strong>Objective:</strong> To design and implement a machine learning model that classifies handwritten digits from the MNIST dataset using a CNN and reproduces the identified digit through audio output[cite: 31, 33].</li>
-                        <li><strong>Performance:</strong> After training on 60,000 images from the MNIST dataset, the model achieved a test accuracy of 98.4%, demonstrating robust performance across various handwriting styles[cite: 33].</li>
-                        <li><strong>Key Feature - Accessibility:</strong> The system incorporates a Text-to-Speech (TTS) engine (using gTTS) that provides real-time voice feedback of the predicted digit[cite: 34].</li>
+                        <li><strong>Performance:</strong> Achieving 98%+ accuracy on the test dataset[cite: 33]. Built with TensorFlow/Keras using convolutional, pooling, and dropout layers[cite: 33].</li>
+                        <li><strong>Accessibility:</strong> Integrated the gTTS (Google Text-to-Speech) API to convert classification inference into real-time audio feedback[cite: 34].</li>
                     </ul>
 
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Challenges & Solutions</h3>
                     <ul>
                         <li>
-                            <strong>Challenge:</strong> I encountered significant difficulties installing the correct versions of the TensorFlow library and its dependencies on my local machine.
-                            <br><strong>Solution:</strong> To avoid setup delays and ensure a stable environment, I migrated the entire project to Google Colab.
+                            <strong>Challenge:</strong> Significant difficulties installing correct versions of the TensorFlow library on a local machine.
+                            <br><strong>Solution:</strong> Migrated the entire project to Google Colab to leverage its pre-configured environment[cite: 35].
+                        </li>
+                        <li>
+                            <strong>Challenge:</strong> System constraints allowed only a limited number of training epochs.
+                            <br><strong>Solution:</strong> Optimized model architecture to maintain high accuracy (98.4%) within those limited cycles.
+                        </li>
+                         <li>
+                            <strong>Challenge:</strong> Desire to add a unique feature beyond simple visual classification.
+                            <br><strong>Solution:</strong> Integrated gTTS to provide real-time audio feedback for visually impaired users.
                         </li>
                     </ul>
 
@@ -297,38 +309,46 @@
         <section id="experience" class="section">
             <div class="grid lg:grid-cols-3 gap-12">
                 <div class="lg:col-span-2">
-                    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8">Internship Experience</h2>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8">Internship & Research Experience</h2>
                     <div class="space-y-8">
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
                             <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Research Intern</h3>
-                            <p class="text-md text-slate-600 dark:text-slate-400">Indian Institute of Astrophysics, Bengaluru</p>
-                            <p class="mt-2 text-slate-700 dark:text-slate-300">Conducted research supporting the Aditya L1 solar project under the guidance of Dr. Wageesh Mishra[cite: 49, 50]. Analyzed scientific literature on Coronal Emission Maps (CEMS) to identify existing research gaps[cite: 51].</p>
+                            <p class="text-md text-blue-600 dark:text-blue-400 font-medium">Indian Institute of Astrophysics, Bengaluru</p>
+                            <p class="mt-2 text-slate-700 dark:text-slate-300">Conducted research supporting the <strong>Aditya L1 solar project</strong> under the guidance of <strong>Dr. Wageesh Mishra</strong>[cite: 49, 50]. Analyzed scientific literature on Coronal Emission Maps (CEMS) to identify existing research gaps, contributing to the team's effort to address existing scientific questions[cite: 51].</p>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
                             <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Research Intern</h3>
-                            <p class="text-md text-slate-600 dark:text-slate-400">Indian Institute of Technology, Roorkee</p>
-                            <p class="mt-2 text-slate-700 dark:text-slate-300">Worked on the quantum aspects of Young's double slit experiments under Dr. Akhilesh Kumar Mishra[cite: 52, 53]. Developed analytical models to compute wavelengths and frequencies of monochromatic and dichromatic waves[cite: 54].</p>
+                            <p class="text-md text-blue-600 dark:text-blue-400 font-medium">Indian Institute of Technology, Roorkee</p>
+                            <p class="mt-2 text-slate-700 dark:text-slate-300">Worked on the quantum aspects of Young's double slit experiments under <strong>Dr. Akhilesh Kumar Mishra</strong>[cite: 52, 53]. Developed analytical models to compute wavelengths and frequencies of monochromatic and dichromatic waves[cite: 54].</p>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8">Skills</h2>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8">Technical Toolkit</h2>
                     <div class="space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
                             <h4 class="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">Hardware & EDA</h4>
                             <ul class="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 marker:text-blue-600">
-                                <li>Verilog, SystemVerilog [cite: 15]</li>
+                                <li>Verilog, SystemVerilog </li>
                                 <li>Xilinx Vivado, ModelSim [cite: 14]</li>
-                                <li><strong>EDA Scripting: Tcl, Python</strong> [cite: 15]</li>
+                                <li><strong>Tcl Scripting:</strong> For automated workflow in Vivado & Sentaurus </li>
                                 <li>Synopsys TCAD Suite [cite: 14]</li>
                             </ul>
                         </div>
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
-                            <h4 class="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">Software</h4>
+                            <h4 class="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">Software & Programming</h4>
                             <ul class="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 marker:text-blue-600">
-                                <li>Python (TensorFlow, NumPy) [cite: 15]</li>
-                                <li>C Programming [cite: 15]</li>
+                                <li>Python (TensorFlow, NumPy) </li>
+                                <li>C Programming </li>
                                 <li>Git, GitHub [cite: 17]</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+                            <h4 class="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">Core Concepts</h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 marker:text-blue-600">
+                                <li>RTL Design, ASICS/FPGA Flow [cite: 16]</li>
+                                <li>Computer Organisation [cite: 16]</li>
+                                <li>Device Physics, CMOS Design [cite: 16]</li>
                             </ul>
                         </div>
                     </div>
@@ -428,7 +448,7 @@
         }
 
         themeToggleBtn.addEventListener('click', handleThemeToggle);
-        themeToggleMobileBtn.addEventListener('click', handleThemeToggle);
+        if (themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', handleThemeToggle);
 
         document.addEventListener('DOMContentLoaded', () => {
             showSection('home');
