@@ -56,15 +56,16 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
         <section id="home" class="section active">
             <div class="text-center py-16">
                 <h1 class="text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Arjit Chaubey</h1>
-                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-400">B.Tech ECE (VLSI Design) | CGPA: 9.4/10</p>
+                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-400">Aspiring VLSI Design Engineer | CGPA: 9.4/10</p>
                 <div class="mt-8 max-w-2xl mx-auto text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                    <p>Passionate ECE undergraduate with hands-on experience in RTL design, Verilog coding, and digital system simulation. Actively seeking internships as a <strong>front-end VLSI design engineer</strong> to apply my skills in chip design and ASIC flows.</p>
+                    <p>Passionate ECE undergraduate with hands-on experience in RTL design, Verilog coding, and digital system simulation. Strong interest in ASIC design flows and physical design. Actively seeking internships as a front-end VLSI design engineer.</p>
                 </div>
                 <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#" onclick="showSection('projects')" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">View Projects</a>
+                    <a href="#" onclick="showSection('projects')" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">View My Projects</a>
                     <a href="assets/ArjitChaubey_resume.pdf" target="_blank" class="bg-slate-200 text-slate-800 font-semibold px-6 py-3 rounded-lg hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 transition-colors">Download Resume</a>
                 </div>
             </div>
@@ -72,23 +73,44 @@
 
         <section id="projects" class="section">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Featured Projects</h2>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Projects</h2>
+                <p class="mt-2 text-lg text-slate-600 dark:text-slate-400">A selection of my work in hardware design, device physics, and machine learning.</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
                 <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md">
                     <img class="h-48 w-full object-cover" src="assets/NMOS_Structure.png" alt="NMOS Structure">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2">28nm HKMG NMOS Characterization</h3>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">Physics-based modeling and PDK calibration using Synopsys TCAD Suite.</p>
+                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">28nm HKMG NMOS Characterization</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">Physics-based modeling and PDK calibration of a 28nm HKMG NMOS transistor using Synopsys TCAD Suite.</p>
                         <a href="#" onclick="showSection('project-tcad')" class="font-semibold text-blue-600 dark:text-blue-400">View Case Study &rarr;</a>
                     </div>
                 </div>
+
                 <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md">
                     <img class="h-48 w-full object-cover" src="assets/riscv_schematic.png" alt="RISC-V">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2">5-Stage Pipelined RISC-V Processor</h3>
-                        <p class="text-slate-600 dark:text-slate-400 mb-4">Verilog-based RV32I processor with hazard detection and forwarding units.</p>
+                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">5-Stage Pipelined RISC-V Processor</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">A Verilog-based processor featuring full hazard detection, successfully implemented on an FPGA with timing closure.</p>
                         <a href="#" onclick="showSection('project-riscv')" class="font-semibold text-blue-600 dark:text-blue-400">View Case Study &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md">
+                    <img class="h-48 w-full object-cover" src="assets/cnn_accelerator_schematic.png" alt="CNN Accelerator">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">CNN Accelerator & Verification</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">A hardware accelerator for CNNs, verified against a Python-based "golden reference" model using MNIST data.</p>
+                        <a href="#" onclick="showSection('project-cnn')" class="font-semibold text-blue-600 dark:text-blue-400">View Case Study &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md">
+                    <img class="h-48 w-full object-cover" src="assets/classifier_output.png" alt="Classifier">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">Handwritten Digit Classifier</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">A CNN model with 98.4% accuracy on the MNIST dataset, featuring a Text-to-Speech engine for accessibility.</p>
+                        <a href="#" onclick="showSection('project-classifier')" class="font-semibold text-blue-600 dark:text-blue-400">View Case Study &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -97,21 +119,21 @@
         <section id="project-tcad" class="section">
             <div class="max-w-4xl mx-auto">
                 <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
-                <h2 class="text-3xl font-bold mb-6">28nm HKMG NMOS Characterization & PDK Calibration</h2>
-                <div class="prose-custom text-lg text-slate-700 dark:text-slate-300">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">28nm HKMG NMOS Characterization & PDK Calibration</h2>
+                <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                        <img class="rounded-lg shadow-md" src="assets/NMOS_Structure.png" alt="NMOS Structure">
-                        <img class="rounded-lg shadow-md" src="assets/NMOS_Doping_Zoom.png" alt="NMOS Doping">
+                        <img class="rounded-lg shadow-md" src="assets/NMOS_Structure.png" alt="Structure">
+                        <img class="rounded-lg shadow-md" src="assets/NMOS_Doping_Zoom.png" alt="Doping">
                     </div>
-                    <h3 class="text-2xl font-bold mt-8 mb-4">Overview</h3>
-                    <p>Developed a physics-based model of a 28nm HKMG NMOS transistor, implementing Density Gradient Quantization and Trap-Assisted Tunneling models to simulate sub-micron behavior.</p>
-                    <ul class="mt-4">
-                        <li><strong>Calibration:</strong> Tuned PhuMob and saturation velocity parameters to achieve >95% agreement in subthreshold and saturation regions.</li>
-                        <li><strong>Analysis:</strong> Performed 1 MHz AC Small-Signal Analysis to extract Gate Capacitance ($C_{gg}$) curves across Accumulation, Depletion, and Inversion.</li>
+                    <h3 class="text-2xl font-bold mt-8 mb-4">Project Overview</h3>
+                    <p>Developed a physics-based model of a 28nm HKMG NMOS transistor, implementing Density Gradient Quantization and Trap-Assisted Tunneling models.</p>
+                    <ul>
+                        <li><strong>Calibration:</strong> Achieved >95% agreement in subthreshold and saturation regions against reference PDK models by tuning PhuMob and saturation velocity parameters.</li>
+                        <li><strong>Analysis:</strong> Executed 1 MHz AC Small-Signal Analysis to extract Gate Capacitance ($C_{gg}$) curves across Accumulation, Depletion, and Inversion regions.</li>
                     </ul>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                        <img class="rounded-lg shadow-md" src="assets/NMOS_IdVg.png" alt="IdVg Curve">
-                        <img class="rounded-lg shadow-md" src="assets/NMOS_IdVd.png" alt="IdVd Curve">
+                        <img class="rounded-lg shadow-md" src="assets/NMOS_IdVg.png" alt="IdVg">
+                        <img class="rounded-lg shadow-md" src="assets/NMOS_IdVd.png" alt="IdVd">
                         <img class="rounded-lg shadow-md" src="assets/NMOS_CV_Curve.png" alt="CV Curve">
                     </div>
                 </div>
@@ -121,13 +143,39 @@
         <section id="project-riscv" class="section">
             <div class="max-w-4xl mx-auto">
                 <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
-                <h2 class="text-3xl font-bold mb-6">5-Stage Pipelined RISC-V Processor</h2>
-                <div class="prose-custom text-lg text-slate-700 dark:text-slate-300">
-                    <p>Designed and implemented a 32-bit RV32I processor in Vivado using Verilog. Optimized for throughput and area.</p>
-                    <ul class="mt-4">
-                        <li><strong>Timing Closure:</strong> Achieved WNS of 4.472 ns at 100 MHz, indicating a max frequency of ~180 MHz.</li>
-                        <li><strong>Efficiency:</strong> Optimized for 142 mW total power and ~1.5k FF resource utilization.</li>
-                        <li><strong>Architecture:</strong> Modular design featuring hazard detection, forwarding, and pipelining registers.</li>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">5-Stage Pipelined RISC-V Processor</h2>
+                <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300">
+                    <p>Designed and implemented a 32-bit 5-stage pipelined RISC-V (RV32I) processor in Vivado using verilog.</p>
+                    <ul>
+                        <li><strong>Performance:</strong> Synthesized at 100 MHz with timing closure (WNS of 4.472 ns), indicating a theoretical max frequency of ~180 MHz.</li>
+                        <li><strong>Efficiency:</strong> Optimized for 142 mW power consumption and ~1.5k FF resource utilization.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="project-cnn" class="section">
+            <div class="max-w-4xl mx-auto">
+                <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">CNN Accelerator & Verification</h2>
+                <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300">
+                    <p>Designed a SIMD-style convolution engine with 9 parallel MAC units for high-throughput 3x3 feature extraction.</p>
+                    <ul>
+                        <li><strong>Quantization:</strong> Implemented a software-based quantization model in Python to convert 32-bit floating-point weights to 8-bit integers (uint8).</li>
+                        <li><strong>Verification:</strong> Built a Hybrid Verification environment using Python/TensorFlow to generate golden reference vectors.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="project-classifier" class="section">
+            <div class="max-w-4xl mx-auto">
+                <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Handwritten Digit Classifier</h2>
+                <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300">
+                    <p>Developed a Convolutional Neural Network (CNN) to classify MNIST digits, achieving 98%+ accuracy on the test dataset.</p>
+                    <ul>
+                        <li><strong>Audio Feedback:</strong> Integrated gTTS API to convert classification inference into real-time audio.</li>
                     </ul>
                 </div>
             </div>
@@ -136,39 +184,28 @@
         <section id="experience" class="section">
             <div class="grid lg:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="text-3xl font-bold mb-8">Research Experience</h2>
-                    <div class="space-y-8">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8">Research Experience</h2>
+                    <div class="space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
                             <h3 class="text-xl font-bold">Research Intern</h3>
-                            <p class="text-blue-600 dark:text-blue-400 font-medium">Indian Institute of Astrophysics (IIA), Bengaluru</p>
-                            <p class="mt-2 text-sm italic">Aditya L1 Solar Project Support</p>
-                            <p class="mt-2">Analyzed Coronal Emission Maps (CEMS) to identify research gaps for the Aditya L1 mission under Dr. Wageesh Mishra.</p>
+                            <p class="text-blue-600 dark:text-blue-400">Indian Institute of Astrophysics, Bengaluru</p>
+                            <p class="mt-2">Analyzed scientific literature on Coronal Emission Maps (CEMS) supporting the Aditya L1 solar project.</p>
                         </div>
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
                             <h3 class="text-xl font-bold">Research Intern</h3>
-                            <p class="text-blue-600 dark:text-blue-400 font-medium">Indian Institute of Technology (IIT), Roorkee</p>
-                            <p class="mt-2 text-sm italic">Quantum Phenomena Modeling</p>
-                            <p class="mt-2">Developed analytical models for monochromatic and dichromatic waves in Young's double-slit experiments under Dr. Akhilesh Kumar Mishra.</p>
+                            <p class="text-blue-600 dark:text-blue-400">Indian Institute of Technology, Roorkee</p>
+                            <p class="mt-2">Developed analytical models to compute wavelengths and frequencies for quantum double slit experiments.</p>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h2 class="text-3xl font-bold mb-8">Technical Toolkit</h2>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8">Technical Toolkit</h2>
                     <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-bold text-blue-600">Hardware & EDA</h4>
-                                <p>Vivado, ModelSim, Synopsys TCAD (Sentaurus), Verilog, SystemVerilog</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-blue-600">Programming & Scripting</h4>
-                                <p>C, Python (NumPy, TensorFlow), Tcl (EDA Scripting), Git</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-blue-600">VLSI Concepts</h4>
-                                <p>RTL Design, ASIC Flow, Digital Logic, Computer Org, CMOS Physics</p>
-                            </div>
-                        </div>
+                        <ul class="space-y-4">
+                            <li><strong>Tools:</strong> Xilinx Vivado, ModelSim, Synopsys TCAD Suite, LT Spice</li>
+                            <li><strong>Programming:</strong> C, Verilog, SystemVerilog, Python, Tcl (EDA Scripting)</li>
+                            <li><strong>Concepts:</strong> RTL Design, ASIC Flow, Computer Architecture, Device Physics</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -176,20 +213,20 @@
 
         <section id="contact" class="section">
             <div class="text-center">
-                <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
-                <p class="text-xl text-blue-600 dark:text-blue-400 mb-2">arjitchaubey2005@gmail.com</p>
-                <p class="text-lg mb-8">+91 6366333210</p>
-                <div class="flex justify-center space-x-6">
-                    <a href="https://linkedin.com/in/arjit-chaubey-b9b056252" target="_blank" class="hover:text-blue-600">LinkedIn</a>
-                    <a href="https://github.com/Arjitchaubey" target="_blank" class="hover:text-blue-600">GitHub</a>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-6">Get In Touch</h2>
+                <p class="text-xl text-blue-600 dark:text-blue-400">arjitchaubey2005@gmail.com | +91 6366333210</p>
+                <div class="mt-8 flex justify-center space-x-6">
+                    <a href="https://linkedin.com/in/arjit-chaubey-b9b056252" target="_blank" class="hover:text-blue-500">LinkedIn</a>
+                    <a href="https://github.com/Arjitchaubey" target="_blank" class="hover:text-blue-500">GitHub</a>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <footer class="bg-slate-100 dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 mt-16">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-500">
-            <p>&copy; 2024 Arjit Chaubey. Powered by Tailwind CSS.</p>
+    <footer class="bg-slate-100 dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-6">
+        <div class="max-w-7xl mx-auto text-center text-slate-500 text-sm">
+            <p>&copy; 2024 Arjit Chaubey. All Rights Reserved.</p>
         </div>
     </footer>
 
