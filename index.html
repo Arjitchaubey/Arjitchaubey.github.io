@@ -1,322 +1,438 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arjit Chaubey | VLSI Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark')
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-    </script>
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .section { display: none; }
-        .section.active { display: block; }
-        .nav-link { transition: all 0.3s ease; position: relative; }
-        .nav-link::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 50%;
-            transform: translateX(-50%); background-color: #3b82f6; transition: width 0.3s ease;
-        }
-        .nav-link.active::after, .nav-link:hover::after { width: 100%; }
-        .project-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .project-card:hover { transform: translateY(-5px); }
-        .prose-custom ul { list-style-position: outside; padding-left: 1.25rem; }
-        .prose-custom li { padding-left: 0.5rem; margin-top: 0.5rem; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arjit Chaubey | VLSI Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Set theme on initial load
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .section { display: none; }
+        .section.active { display: block; }
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link.active::after, .nav-link:hover::after {
+            width: 100%;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        /* Custom prose styles for better readability */
+        .prose-custom ul {
+            list-style-position: outside;
+            padding-left: 1.25rem;
+        }
+        .prose-custom li {
+            padding-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-700 dark:bg-slate-900 dark:text-slate-300">
 
-    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200 dark:border-slate-700">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <a href="#" onclick="showSection('home')" class="text-xl font-bold text-slate-800 dark:text-slate-100">Arjit Chaubey</a>
-                </div>
-                <div class="hidden md:flex items-center">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#" id="nav-home" class="nav-link active px-3 py-2 rounded-md text-sm font-medium" onclick="showSection('home')">Home</a>
-                        <a href="#" id="nav-projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium" onclick="showSection('projects')">Projects</a>
-                        <a href="#" id="nav-experience" class="nav-link px-3 py-2 rounded-md text-sm font-medium" onclick="showSection('experience')">Experience & Skills</a>
-                        <a href="#" id="nav-recommendations" class="nav-link px-3 py-2 rounded-md text-sm font-medium" onclick="showSection('recommendations')">Recommendations</a>
-                        <a href="#" id="nav-contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium" onclick="showSection('contact')">Contact</a>
-                    </div>
-                    <button id="theme-toggle" class="ml-6 p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
-                        <svg id="theme-toggle-dark-icon" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                        <svg id="theme-toggle-light-icon" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    </button>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200 dark:border-slate-700">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" onclick="showSection('home')" class="text-xl font-bold text-slate-800 dark:text-slate-100">Arjit Chaubey</a>
+                </div>
+                <div class="hidden md:flex items-center">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" id="nav-home" class="nav-link active px-3 py-2 rounded-md text-sm font-medium" onclick="showSection('home')">Home</a>
+                        <a href="#" id="nav-projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium" onclick="showSection('projects')">Projects</a>
+                        <a href="#" id="nav-experience" class="nav-link px-3 py-2 rounded-md text-sm font-medium" onclick="showSection('experience')">Experience & Skills</a>
+                        <a href="#" id="nav-recommendations" class="nav-link px-3 py-2 rounded-md text-sm font-medium" onclick="showSection('recommendations')">Recommendations</a>
+                        <a href="#" id="nav-contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium" onclick="showSection('contact')">Contact</a>
+                    </div>
+                    <button id="theme-toggle" class="ml-6 p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <svg id="theme-toggle-dark-icon" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                     <button id="theme-toggle-mobile" class="mr-2 p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <!-- Icons will be dynamically set by JS -->
+                    </button>
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800" onclick="showSection('home'); closeMenu();">Home</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800" onclick="showSection('projects'); closeMenu();">Projects</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800" onclick="showSection('experience'); closeMenu();">Experience & Skills</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800" onclick="showSection('recommendations'); closeMenu();">Recommendations</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800" onclick="showSection('contact'); closeMenu();">Contact</a>
+            </div>
+        </div>
+    </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        <section id="home" class="section active">
-            <div class="text-center py-16">
-                <h1 class="text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Arjit Chaubey</h1>
-                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-400">Aspiring VLSI Design Engineer | SRM University | CGPA: 9.4/10</p>
-                <div class="mt-8 max-w-2xl mx-auto text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                    <p>ECE Undergraduate (Class of 2027) with hands-on experience in RTL design, Verilog coding, and Synopsys TCAD modeling. Strong interest in ASIC design flows and physical design. Actively seeking internships as a front-end VLSI design engineer.</p>
-                </div>
-                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#" onclick="showSection('projects')" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">View My Projects</a>
-                    <a href="assets/ArjitChaubey_resume.pdf" target="_blank" class="bg-slate-200 text-slate-800 font-semibold px-6 py-3 rounded-lg hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 transition-colors">Download Resume</a>
-                </div>
-            </div>
-        </section>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="text-center py-16">
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Arjit Chaubey</h1>
+                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-400">Aspiring VLSI Design Engineer</p>
+                <div class="mt-8 max-w-2xl mx-auto text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                    <p>Passionate ECE undergraduate with hands-on experience in RTL design, Verilog coding, and digital system simulation. Strong interest in ASIC design flows and physical design. Actively seeking internships as a front-end VLSI design engineer to apply and expand my skills in chip design.</p>
+                </div>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#" onclick="showSection('projects')" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">View My Projects</a>
+                    <a href="assets/resume.pdf" target="_blank" class="bg-slate-200 text-slate-800 font-semibold px-6 py-3 rounded-lg hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 transition-colors">Download Resume</a>
+                </div>
+            </div>
+        </section>
 
-        <section id="projects" class="section">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Projects</h2>
-                <p class="mt-2 text-lg text-slate-600 dark:text-slate-400">Selection of work in hardware design, device characterization, and machine learning.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md dark:shadow-slate-700/50">
-                    <img class="h-48 w-full object-cover" src="assets/NMOS_Structure.png" alt="NMOS Structure">
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">28nm HKMG NMOS Characterization</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">Physics-based modeling and PDK calibration of a 28nm HKMG NMOS transistor using Synopsys TCAD Suite.</p>
-                        <a href="#" onclick="showSection('project-tcad')" class="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">View Case Study &rarr;</a>
-                    </div>
-                </div>
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Projects</h2>
+                <p class="mt-2 text-lg text-slate-600 dark:text-slate-400">A selection of my work in hardware design and machine learning.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md dark:shadow-slate-700/50">
+                    <img class="h-48 w-full object-cover" src="assets/riscv_schematic.png" alt="RISC-V Processor Block Diagram">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">5-Stage Pipelined RISC-V Processor</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">A Verilog-based processor featuring full hazard detection, successfully implemented on an FPGA with timing closure.</p>
+                        <a href="#" onclick="showSection('project-riscv')" class="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">View Case Study &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md dark:shadow-slate-700/50">
+                    <img class="h-48 w-full object-cover" src="assets/cnn_accelerator_schematic.png" alt="CNN Accelerator Schematic">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">CNN Accelerator & Verification</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">A hardware accelerator for CNNs, verified against a Python-based "golden reference" model using MNIST data.</p>
+                        <a href="#" onclick="showSection('project-cnn')" class="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">View Case Study &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md dark:shadow-slate-700/50">
+                    <img class="h-48 w-full object-cover" src="assets/classifier_output.png" alt="MNIST Digit Classifier Output">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">Handwritten Digit Classifier</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">A CNN model with 98.4% accuracy on the MNIST dataset, featuring a Text-to-Speech engine for accessibility.</p>
+                        <a href="#" onclick="showSection('project-classifier')" class="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">View Case Study &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md dark:shadow-slate-700/50">
-                    <img class="h-48 w-full object-cover" src="assets/riscv_schematic.png" alt="RISC-V Processor Block Diagram">
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">5-Stage Pipelined RISC-V Processor</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">A Verilog-based processor featuring full hazard detection, successfully implemented on an FPGA at 100 MHz clock frequency.</p>
-                        <a href="#" onclick="showSection('project-riscv')" class="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">View Case Study &rarr;</a>
-                    </div>
-                </div>
+        <!-- RISC-V Project Detail -->
+        <section id="project-riscv" class="section">
+            <div class="max-w-4xl mx-auto">
+                <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">5-Stage Pipelined RISC-V Processor</h2>
+                <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300 max-w-none">
+                    <img class="rounded-lg shadow-lg mb-8" src="assets/riscv_schematic.png" alt="RISC-V Device Schematic">
+                    
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
+                    <p>This project involved architecting and implementing a 32-bit, 5-stage pipelined RISC-V processor from the ground up in Verilog. The design supports a key subset of the ISA including R, I, S, U, and J-type instructions, making it capable of running meaningful programs.</p>
+                    
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
+                    <ul>
+                        <li><strong>Architecture:</strong> Engineered a modular design that includes dedicated hazard detection and control units to resolve data and control hazards, ensuring correct program execution and minimizing pipeline stalls.</li>
+                        <li><strong>Verification:</strong> Verified the processor's functional correctness by simulating its execution of a pre-compiled `program.hex` test file. The testbench monitored pipeline registers and outputs to confirm accurate instruction processing.</li>
+                        <li><strong>Implementation:</strong> Successfully synthesized and implemented the design on a Xilinx FPGA, achieving timing closure with a positive Worst Negative Slack (WNS) of 4.012 ns, confirming the design's robustness at the target frequency.</li>
+                    </ul>
 
-                <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md dark:shadow-slate-700/50">
-                    <img class="h-48 w-full object-cover" src="assets/cnn_accelerator_schematic.png" alt="CNN Accelerator Schematic">
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">CNN Accelerator & Verification</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">SIMD-style convolution engine with 9 parallel MAC units, verified against a Python-based "golden reference" model.</p>
-                        <a href="#" onclick="showSection('project-cnn')" class="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">View Case Study &rarr;</a>
-                    </div>
-                </div>
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Challenges & Solutions</h3>
+                    <ul>
+                        <li>
+                            <strong>Challenge:</strong> Managing the complexity of a large, modular codebase. Understanding and integrating the numerous module interconnections in the top-level design was a significant task.
+                            <br><strong>Solution:</strong> I adopted a systematic approach by first planning all top-level connections and data paths on paper. This "blueprint" served as a clear guide during the Verilog coding phase, preventing integration errors and streamlining the process.
+                        </li>
+                        <li>
+                            <strong>Challenge:</strong> The initial hazard control unit failed to correctly handle control hazards from jump and load instructions, causing the processor to fetch incorrect subsequent instructions.
+                            <br><strong>Solution:</strong> I re-architected the control logic to intentionally stall the pipeline for two clock cycles upon detecting a jump or branch instruction. This gave the Program Counter (PC) the necessary time to calculate and fetch the correct target address, ensuring program integrity.
+                        </li>
+                    </ul>
 
-                <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md dark:shadow-slate-700/50">
-                    <img class="h-48 w-full object-cover" src="assets/classifier_output.png" alt="MNIST Digit Classifier Output">
-                    <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">Handwritten Digit Classifier</h3>
-                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">A CNN model with 98.4% accuracy on the MNIST dataset, featuring a Text-to-Speech engine for accessibility.</p>
-                        <a href="#" onclick="showSection('project-classifier')" class="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">View Case Study &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Key Visuals</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                         <img class="rounded-lg shadow-md" src="assets/riscv_simulation.png" alt="Simulation Waveform">
+                         <img class="rounded-lg shadow-md" src="assets/riscv_hazard_snippet.png" alt="Hazard Detection Code Snippet">
+                         <img class="rounded-lg shadow-md md:col-span-2" src="assets/riscv_timing_summary.png" alt="Timing and Power Summary">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="project-tcad" class="section">
-            <div class="max-w-4xl mx-auto">
-                <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">28nm HKMG NMOS Characterization & PDK Calibration</h2>
-                <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300 max-w-none">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                        <img class="rounded-lg shadow-md" src="assets/NMOS_Structure.png" alt="NMOS Structure">
-                        <img class="rounded-lg shadow-md" src="assets/NMOS_Doping_Zoom.png" alt="NMOS Doping Profile">
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
-                    <p>Developed a physics-based model of a 28nm HKMG NMOS transistor, implementing Density Gradient Quantization and Trap-Assisted Tunneling models. Performed DC calibration against a reference PDK model to achieve >95% agreement in subthreshold and saturation regions.</p>
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Accomplishments</h3>
-                    <ul>
-                        <li><strong>Calibration:</strong> Tuned Philips Unified Mobility (PhuMob) and saturation velocity parameters to achieve >95% agreement.</li>
-                        <li><strong>AC Analysis:</strong> Executed Small-Signal Analysis (1 MHz) to extract Gate Capacitance ($C_{gg}$) curves across Accumulation, Depletion, and Inversion.</li>
-                    </ul>
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Key Results</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <img class="rounded-lg shadow-md" src="assets/NMOS_IdVg.png" alt="IdVg Curve">
-                        <img class="rounded-lg shadow-md" src="assets/NMOS_IdVd.png" alt="IdVd Curve">
-                        <img class="rounded-lg shadow-md" src="assets/NMOS_CV_Curve.png" alt="CV Curve">
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- CNN Project Detail -->
+        <section id="project-cnn" class="section">
+            <div class="max-w-4xl mx-auto">
+                <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">CNN Accelerator & Golden Reference Verification</h2>
+                 <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300 max-w-none">
+                    <img class="rounded-lg shadow-lg mb-8" src="assets/cnn_accelerator_schematic.png" alt="CNN Accelerator Schematic">
 
-        <section id="project-riscv" class="section">
-            <div class="max-w-4xl mx-auto">
-                <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">5-Stage Pipelined RISC-V Processor</h2>
-                <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300 max-w-none">
-                    <img class="rounded-lg shadow-lg mb-8" src="assets/riscv_schematic.png" alt="RISC-V Device Schematic">
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
-                    <p>Architected and implemented a 32-bit, 5-stage pipelined RISC-V (RV32I) processor from the ground up in Verilog. Supports R, I, S, U, and J-type instructions.</p>
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Performance Metrics</h3>
-                    <ul>
-                        <li><strong>Frequency:</strong> Achieved timing closure with a WNS of 4.472 ns, indicating a theoretical max frequency of ~180 MHz.</li>
-                        <li><strong>Power:</strong> Analyzed post-implementation metrics, optimizing for 142 mW total power.</li>
-                        <li><strong>Resources:</strong> Achieved efficient utilization of ~1.5k Flip-Flops.</li>
-                    </ul>
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Challenges & Solutions</h3>
-                    <ul>
-                        <li><strong>Challenge:</strong> Initial hazard control unit failed to handle control hazards from jumps. <br><strong>Solution:</strong> Re-architected control logic to stall the pipeline for two clock cycles upon detecting jump/branch instructions.</li>
-                    </ul>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-                         <img class="rounded-lg shadow-md" src="assets/riscv_simulation.png" alt="Simulation Waveform">
-                         <img class="rounded-lg shadow-md md:col-span-2" src="assets/riscv_timing_summary.png" alt="Timing Summary">
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
+                    <p>This project demonstrates a complete hardware design and verification flow, a critical skill in the semiconductor industry. I designed a Verilog-based hardware accelerator for CNN operations and rigorously tested it using a "golden reference" model written in Python.</p>
+                    
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
+                    <ul>
+                        <li><strong>Python Reference Model:</strong> Developed a behavioral model in Python to perform Multiply-Accumulate (MAC) operations on MNIST image data. This script automatically generated "golden" reference test vectors, including feature maps and kernel values.</li>
+                        <li><strong>Hardware Design:</strong> Coded a CNN accelerator module in Verilog, with a focus on creating a high-throughput data path and an efficient FSM-based control unit.</li>
+                        <li><strong>Verification Framework:</strong> Created a Verilog testbench that read the test vectors from the Python model and fed them into the hardware design. The testbench then automatically compared the hardware's output against the golden reference, flagging any mismatches.</li>
+                        <li><strong>Result:</strong> Successfully validated the functional correctness of the Verilog MAC unit, ensuring its output was a bit-perfect match with the golden reference model for all test cases.</li>
+                    </ul>
 
-        <section id="project-cnn" class="section">
-            <div class="max-w-4xl mx-auto">
-                <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Hybrid RTL-ML CNN Hardware Accelerator</h2>
-                 <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300 max-w-none">
-                    <img class="rounded-lg shadow-lg mb-8" src="assets/cnn_accelerator_schematic.png" alt="CNN Accelerator Schematic">
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
-                    <p>Designed a Verilog-based hardware accelerator featuring a SIMD-style convolution engine with 9 parallel MAC units for high-throughput feature extraction.</p>
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Hardware/Software Flow</h3>
-                    <ul>
-                        <li><strong>Quantization Model:</strong> Built a software model in Python to quantize 32-bit floating-point weights into 8-bit integers (uint8).</li>
-                        <li><strong>Verification:</strong> Built a Hybrid Verification environment using Python/TensorFlow to generate bit-perfect golden reference vectors.</li>
-                    </ul>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-                         <img class="rounded-lg shadow-md" src="assets/cnn_testbench.png" alt="CNN Testbench">
-                         <img class="rounded-lg shadow-md" src="assets/cnn_python_output.png" alt="Python Output">
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Challenges & Solutions</h3>
+                    <ul>
+                        <li>
+                            <strong>Challenge:</strong> The data flow logic within the convolution engine and output buffer was complex. Ensuring the hardware could correctly process streaming data without errors was difficult to conceptualize initially.
+                            <br><strong>Solution:</strong> I carefully studied the data flow requirements and planned the FSM control logic before implementation. This allowed me to build a robust state machine that managed the data path correctly.
+                        </li>
+                        <li>
+                            <strong>Challenge:</strong> Verifying that the hardware was truly cycle-accurate and bit-perfect compared to the high-level Python model.
+                            <br><strong>Solution:</strong> I implemented a systematic, multi-stage verification strategy. First, I performed sanity checks with simple, self-created `.hex` files. Then, I used the Python script to generate complex, realistic test vectors from the MNIST dataset. By replacing the simple inputs with these "golden" inputs in my testbench, I could definitively prove the hardware's correctness.
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Key Visuals</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                         <img class="rounded-lg shadow-md" src="assets/cnn_testbench.png" alt="CNN Testbench Snippet">
+                         <img class="rounded-lg shadow-md" src="assets/cnn_python_code.png" alt="Python Code Snippet">
+                         <img class="rounded-lg shadow-md md:col-span-2" src="assets/cnn_python_output.png" alt="Python Output Snippet">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section id="project-classifier" class="section">
-             <div class="max-w-4xl mx-auto">
-                <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Handwritten Digit Classifier with Audio Feedback</h2>
-                <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300 max-w-none">
-                    <img class="rounded-lg shadow-lg mb-8" src="assets/classifier_output.png" alt="MNIST Classifier Output">
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
-                    <p>Designed a CNN using TensorFlow/Keras to classify handwritten digits, serving as the motivational basis for hardware acceleration projects.</p>
-                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
-                    <ul>
-                        <li><strong>Performance:</strong> Achieved 98.4% test accuracy on the MNIST dataset.</li>
-                        <li><strong>Accessibility:</strong> Integrated gTTS (Google Text-to-Speech) API to provide real-time audio feedback of predictions.</li>
-                    </ul>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-                         <img class="rounded-lg shadow-md" src="assets/classifier_architecture.png" alt="CNN Model Architecture">
-                         <img class="rounded-lg shadow-md" src="assets/gtts_snippet.png" alt="gTTS Snippet">
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Classifier Project Detail -->
+        <section id="project-classifier" class="section">
+             <div class="max-w-4xl mx-auto">
+                <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Handwritten Digit Classifier with Audio Feedback</h2>
+                <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300 max-w-none">
+                    <img class="rounded-lg shadow-lg mb-8" src="assets/classifier_output.png" alt="MNIST Classifier Output Detail">
 
-        <section id="experience" class="section">
-            <div class="grid lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-2">
-                    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8">Research Experience</h2>
-                    <div class="space-y-8">
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
-                            <h3 class="text-xl font-bold">Research Intern | IIA Bengaluru</h3>
-                            <p class="text-blue-600 dark:text-blue-400 font-semibold mb-2">Aditya L1 Mission Support</p>
-                            <p class="text-sm">Conducted literature research on Coronal Emission Maps (CEMS) to identify research gaps for the mission under Dr. Wageesh Mishra.</p>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md border-l-4 border-blue-600">
-                            <h3 class="text-xl font-bold">Research Intern | IIT Roorkee</h3>
-                            <p class="text-blue-600 dark:text-blue-400 font-semibold mb-2">Quantum Physics Modeling</p>
-                            <p class="text-sm">Developed analytical models to compute wavelengths and frequencies of waves in Young's double slit experiments under Dr. Akhilesh Kumar Mishra.</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8">Technical toolkit</h2>
-                    <div class="space-y-6">
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
-                            <h4 class="font-bold text-blue-600 mb-2">Hardware & EDA</h4>
-                            <p class="text-xs">Vivado, ModelSim, Synopsys Sentaurus Suite, Tcl Scripting for automated EDA workflows.</p>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
-                            <h4 class="font-bold text-blue-600 mb-2">Programming</h4>
-                            <p class="text-xs">Verilog, SystemVerilog, Python (TensorFlow, NumPy), C, EDA Scripting.</p>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
-                            <h4 class="font-bold text-blue-600 mb-2">Concepts</h4>
-                            <p class="text-xs">RTL Design, ASIC Synthesis, Computer Architecture, CMOS Device Physics.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
+                    <p>This project showcases my skills in machine learning and software integration. It served as the motivational basis for my hardware acceleration projects by demonstrating the computational demands of neural networks.</p>
+                    
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
+                    <ul>
+                        <li><strong>Objective:</strong> To design and implement a machine learning model that classifies handwritten digits from the MNIST dataset using a CNN and reproduces the identified digit through audio output.</li>
+                        <li><strong>Architecture & Technology:</strong> Built a Convolutional Neural Network using TensorFlow/Keras, composed of multiple convolutional and pooling layers for feature extraction, and a dropout layer to prevent overfitting.</li>
+                        <li><strong>Performance:</strong> After training on 60,000 images from the MNIST dataset, the model achieved a test accuracy of 98.4%, demonstrating robust performance across various handwriting styles.</li>
+                        <li><strong>Key Feature - Accessibility:</strong> The system incorporates a Text-to-Speech (TTS) engine (using gTTS) that provides real-time voice feedback of the predicted digit, making the application accessible for visually impaired users and interactive for educational purposes.</li>
+                    </ul>
 
-        <section id="recommendations" class="section">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Recommendations</h2>
-            </div>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md text-center">
-                    <h3 class="font-semibold text-slate-800 dark:text-slate-100">Indian Institute of Astrophysics</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 mb-4">Letter from Dr. Wageesh Mishra regarding research contributions.</p>
-                    <a href="assets/lor_iia.pdf" target="_blank" class="bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 text-xs">View LOR (PDF)</a>
-                </div>
-                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md text-center">
-                    <h3 class="font-semibold text-slate-800 dark:text-slate-100">IIT Roorkee</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 mb-4">Letter from Dr. Akhilesh Kumar Mishra regarding quantum modeling.</p>
-                    <a href="assets/lor_iit.pdf" target="_blank" class="bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 text-xs">View LOR (PDF)</a>
-                </div>
-            </div>
-        </section>
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Challenges & Solutions</h3>
+                    <ul>
+                        <li>
+                            <strong>Challenge:</strong> I encountered significant difficulties installing the correct versions of the TensorFlow library and its dependencies on my local machine.
+                            <br><strong>Solution:</strong> To avoid setup delays and ensure a stable environment, I migrated the entire project to Google Colab. This allowed me to leverage a pre-configured, cloud-based platform with all necessary libraries readily available.
+                        </li>
+                        <li>
+                            <strong>Challenge:</strong> Due to system and time constraints, I could only run a limited number of training epochs, which capped the model's potential accuracy.
+                            <br><strong>Solution:</strong> Despite the constraints, I optimized the model architecture to achieve a high accuracy of 98.4% within the limited training window, demonstrating efficient model design.
+                        </li>
+                         <li>
+                            <strong>Challenge:</strong> I wanted to add a unique feature that went beyond simple visual classification.
+                            <br><strong>Solution:</strong> I integrated the gTTS (Google Text-to-Speech) library to provide real-time audio feedback of the classified digit. This not only enhanced the project but also added a valuable accessibility feature for visually impaired users.
+                        </li>
+                    </ul>
 
-        <section id="contact" class="section">
-            <div class="text-center">
-                <h2 class="text-3xl font-bold mb-6">Contact</h2>
-                <p class="text-xl text-blue-600 font-semibold mb-4">arjitchaubey2005@gmail.com</p>
-                <div class="flex justify-center space-x-6">
-                    <a href="https://www.linkedin.com/in/arjit-chaubey-b9b056252/" target="_blank" class="text-slate-500 hover:text-blue-600">LinkedIn</a>
-                    <a href="https://github.com/Arjitchaubey" target="_blank" class="text-slate-500 hover:text-blue-600">GitHub</a>
-                </div>
-            </div>
-        </section>
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Key Visuals</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                         <img class="rounded-lg shadow-md" src="assets/classifier_architecture.png" alt="CNN Model Architecture">
+                         <img class="rounded-lg shadow-md" src="assets/gtts_snippet.png" alt="gTTS Integration Code Snippet">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    </main>
+        <!-- Experience & Skills Section -->
+        <section id="experience" class="section">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8">Internship Experience</h2>
+                    <div class="space-y-8">
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Research Intern</h3>
+                            <p class="text-md text-slate-600 dark:text-slate-400">Indian Institute of Astrophysics, Bengaluru</p>
+                            <p class="mt-2 text-slate-700 dark:text-slate-300">Conducted research supporting the Aditya L1 solar project under the guidance of Dr. Wageesh Mishra. Analyzed scientific literature on Coronal Emission Maps (CEMS) to identify existing research gaps, contributing to the team's effort to address current scientific questions.</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Research Intern</h3>
+                            <p class="text-md text-slate-600 dark:text-slate-400">Indian Institute of Technology, Roorkee</p>
+                            <p class="mt-2 text-slate-700 dark:text-slate-300">Worked on the quantum aspects of Young's double slit experiments under Dr. Akhilesh Kumar Mishra. Developed analytical models to compute wavelengths and frequencies of monochromatic and dichromatic waves, contributing to a deeper understanding of quantum interference phenomena.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8">Skills</h2>
+                    <div class="space-y-6">
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+                            <h4 class="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">Hardware & EDA</h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 marker:text-blue-600">
+                                <li>Verilog, RTL Design</li>
+                                <li>Xilinx Vivado, ModelSim</li>
+                                <li>EDA Scripting (Tcl)</li>
+                                <li>Synopsys TCAD Suite</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+                            <h4 class="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">Software & Programming</h4>
+                             <ul class="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 marker:text-blue-600">
+                                <li>Python (TensorFlow, Keras, NumPy)</li>
+                                <li>C Programming</li>
+                                <li>Git, GitHub</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+                            <h4 class="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">Core Concepts</h4>
+                             <ul class="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 marker:text-blue-600">
+                                <li>Digital Logic Design</li>
+                                <li>Computer Architecture</li>
+                                <li>Pipelining & Hazard Detection</li>
+                                <li>ASIC/FPGA Design Flow</li>
+                                <li>Finite State Machine (FSM) Design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer class="bg-slate-100 dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-6 mt-16">
-        <div class="max-w-7xl mx-auto text-center text-slate-500 text-sm">
-            <p>&copy; 2024 Arjit Chaubey. All Rights Reserved.</p>
-        </div>
-    </footer>
+        <!-- Recommendations Section -->
+        <section id="recommendations" class="section">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Recommendations</h2>
+                <p class="mt-2 text-lg text-slate-600 dark:text-slate-400">Letters of Recommendation from my mentors.</p>
+            </div>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Indian Institute of Astrophysics</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2 mb-4">Recommendation from Dr. Wageesh Mishra for my work on the Aditya L1 solar project.</p>
+                    <a href="assets/lor_iia.pdf" target="_blank" class="bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm">View LOR (PDF)</a>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md text-center">
+                    <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Indian Institute of Technology, Roorkee</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2 mb-4">Recommendation from Dr. Akhilesh Kumar Mishra for my research on quantum phenomena.</p>
+                    <a href="assets/lor_iit.pdf" target="_blank" class="bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm">View LOR (PDF)</a>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+             <div class="text-center">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Get In Touch</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400">I'm currently seeking internship opportunities in VLSI design. Feel free to reach out!</p>
+                <div class="mt-8 flex flex-col items-center justify-center space-y-4">
+                    <a href="mailto:arjitchaubey2005@gmail.com" class="text-xl font-semibold text-blue-600 dark:text-blue-400 hover:underline">arjitchaubey2005@gmail.com</a>
+                    <a href="tel:+916366333210" class="text-xl font-semibold text-blue-600 dark:text-blue-400 hover:underline">+91 6366333210</a>
+                </div>
+                <div class="mt-8 flex justify-center space-x-6">
+                    <a href="https://www.linkedin.com/in/arjit-chaubey-b9b056252/" target="_blank" class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <a href="https://github.com/Arjitchaubey" target="_blank" class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        function showSection(id) {
-            sections.forEach(s => s.classList.remove('active'));
-            const target = document.getElementById(id);
-            if (target) target.classList.add('active');
-            navLinks.forEach(l => {
-                l.classList.remove('active');
-                if (l.id === `nav-${id.split('-')[0]}`) l.classList.add('active');
-            });
-            window.scrollTo(0, 0);
-        }
+    </main>
 
-        themeToggleBtn.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.toggle('dark');
-            localStorage.theme = isDark ? 'dark' : 'light';
-            updateIcons(isDark);
-        });
+    <footer class="bg-slate-100 dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 mt-16">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-500 dark:text-slate-400">
+            <p>&copy; 2024 Arjit Chaubey. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-        function updateIcons(isDark) {
-            darkIcon.style.display = isDark ? 'block' : 'none';
-            lightIcon.style.display = isDark ? 'none' : 'block';
-        }
+    <script>
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+        const darkIconContainer = document.getElementById('theme-toggle-dark-icon');
+        const lightIconContainer = document.getElementById('theme-toggle-light-icon');
+        const darkIconSVG = `<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>`;
+        const lightIconSVG = `<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>`;
 
-        document.addEventListener('DOMContentLoaded', () => {
-            updateIcons(document.documentElement.classList.contains('dark'));
-        });
-    </script>
+        function showSection(id) {
+            sections.forEach(section => section.classList.remove('active'));
+            const targetSection = document.getElementById(id);
+            if (targetSection) targetSection.classList.add('active');
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.id === `nav-${id.split('-')[0]}`) {
+                    link.classList.add('active');
+                }
+            });
+            window.scrollTo(0, 0);
+        }
+        
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        function closeMenu() { mobileMenu.classList.add('hidden'); }
+
+        // Theme toggle logic
+        function handleThemeToggle() {
+            const isDarkMode = document.documentElement.classList.toggle('dark');
+            localStorage.theme = isDarkMode ? 'dark' : 'light';
+            updateThemeIcons(isDarkMode);
+        }
+
+        function updateThemeIcons(isDarkMode) {
+            darkIconContainer.style.display = isDarkMode ? 'block' : 'none';
+            lightIconContainer.style.display = isDarkMode ? 'none' : 'block';
+            themeToggleMobileBtn.innerHTML = isDarkMode ? lightIconSVG : darkIconSVG;
+        }
+
+        themeToggleBtn.addEventListener('click', handleThemeToggle);
+        themeToggleMobileBtn.addEventListener('click', handleThemeToggle);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+            updateThemeIcons(document.documentElement.classList.contains('dark'));
+        });
+    </script>
+
 </body>
 </html>
+
+Keeping this code as it is, only add the new project section along with short description for it and images. Also update the research section as you feel fit
