@@ -59,7 +59,6 @@
 </head>
 <body class="bg-slate-50 text-slate-700 dark:bg-slate-900 dark:text-slate-300">
 
-    <!-- Header & Navigation -->
     <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200 dark:border-slate-700">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -81,8 +80,7 @@
                 </div>
                 <div class="md:hidden flex items-center">
                      <button id="theme-toggle-mobile" class="mr-2 p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
-                        <!-- Icons will be dynamically set by JS -->
-                    </button>
+                        </button>
                     <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
                     </button>
@@ -102,29 +100,36 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        <!-- Home Section -->
         <section id="home" class="section active">
             <div class="text-center py-16">
                 <h1 class="text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Arjit Chaubey</h1>
-                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-400">Aspiring VLSI Design Engineer</p>
+                <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-400">B.Tech ECE (VLSI Design) Student | Class of 2027 | CGPA: 9.4/10</p>
                 <div class="mt-8 max-w-2xl mx-auto text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                     <p>Passionate ECE undergraduate with hands-on experience in RTL design, Verilog coding, and digital system simulation. Strong interest in ASIC design flows and physical design. Actively seeking internships as a front-end VLSI design engineer to apply and expand my skills in chip design.</p>
                 </div>
                 <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
                     <a href="#" onclick="showSection('projects')" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">View My Projects</a>
-                    <a href="assets/resume.pdf" target="_blank" class="bg-slate-200 text-slate-800 font-semibold px-6 py-3 rounded-lg hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 transition-colors">Download Resume</a>
+                    <a href="assets/ArjitChaubey_resume.pdf" target="_blank" class="bg-slate-200 text-slate-800 font-semibold px-6 py-3 rounded-lg hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 transition-colors">Download Resume</a>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="section">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Projects</h2>
-                <p class="mt-2 text-lg text-slate-600 dark:text-slate-400">A selection of my work in hardware design and machine learning.</p>
+                <p class="mt-2 text-lg text-slate-600 dark:text-slate-400">A selection of my work in hardware design, device physics, and machine learning.</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md dark:shadow-slate-700/50">
+                    <img class="h-48 w-full object-cover" src="assets/NMOS_Structure.png" alt="NMOS Structure Thumbnail">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-slate-800 dark:text-slate-100">28nm HKMG NMOS Characterization</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base mb-4">Physics-based modeling and PDK calibration of a 28nm NMOS transistor using the Synopsys TCAD Suite.</p>
+                        <a href="#" onclick="showSection('project-tcad')" class="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">View Case Study &rarr;</a>
+                    </div>
+                </div>
+
                 <div class="project-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md dark:shadow-slate-700/50">
                     <img class="h-48 w-full object-cover" src="assets/riscv_schematic.png" alt="RISC-V Processor Block Diagram">
                     <div class="p-6">
@@ -152,7 +157,35 @@
             </div>
         </section>
 
-        <!-- RISC-V Project Detail -->
+        <section id="project-tcad" class="section">
+            <div class="max-w-4xl mx-auto">
+                <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">28nm HKMG NMOS Characterization & PDK Calibration</h2>
+                <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300 max-w-none">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <img class="rounded-lg shadow-md" src="assets/NMOS_Structure.png" alt="NMOS Structure">
+                        <img class="rounded-lg shadow-md" src="assets/NMOS_Doping_Zoom.png" alt="NMOS Doping Profile">
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
+                    <p>Developed a physics-based model of a 28nm HKMG NMOS transistor using the Synopsys TCAD Suite. The project involved implementing Density Gradient Quantization and Trap-Assisted Tunneling models to simulate sub-micron behavior accurately[cite: 36, 38].</p>
+                    
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
+                    <ul>
+                        <li><strong>DC Calibration:</strong> Performed calibration against a reference PDK model, tuning Philips Unified Mobility (PhuMob) and saturation velocity parameters to achieve >95% agreement in subthreshold and saturation regions[cite: 39].</li>
+                        <li><strong>AC Analysis:</strong> Executed Small-Signal Analysis (1 MHz) to extract Gate Capacitance ($C_{gg}$) curves, successfully verifying Accumulation, Depletion, and Inversion regions[cite: 40].</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Simulation Results</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <img class="rounded-lg shadow-md" src="assets/NMOS_IdVg.png" alt="Id-Vg Curve">
+                        <img class="rounded-lg shadow-md" src="assets/NMOS_IdVd.png" alt="Id-Vd Curve">
+                        <img class="rounded-lg shadow-md" src="assets/NMOS_CV_Curve.png" alt="C-V Curve">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="project-riscv" class="section">
             <div class="max-w-4xl mx-auto">
                 <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
@@ -161,13 +194,13 @@
                     <img class="rounded-lg shadow-lg mb-8" src="assets/riscv_schematic.png" alt="RISC-V Device Schematic">
                     
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
-                    <p>This project involved architecting and implementing a 32-bit, 5-stage pipelined RISC-V processor from the ground up in Verilog. The design supports a key subset of the ISA including R, I, S, U, and J-type instructions, making it capable of running meaningful programs.</p>
+                    <p>This project involved architecting and implementing a 32-bit, 5-stage pipelined RISC-V processor from the ground up in Verilog. The design supports a key subset of the ISA including R, I, S, U, and J-type instructions, making it capable of running meaningful programs[cite: 19, 21].</p>
                     
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
                     <ul>
-                        <li><strong>Architecture:</strong> Engineered a modular design that includes dedicated hazard detection and control units to resolve data and control hazards, ensuring correct program execution and minimizing pipeline stalls.</li>
-                        <li><strong>Verification:</strong> Verified the processor's functional correctness by simulating its execution of a pre-compiled `program.hex` test file. The testbench monitored pipeline registers and outputs to confirm accurate instruction processing.</li>
-                        <li><strong>Implementation:</strong> Successfully synthesized and implemented the design on a Xilinx FPGA, achieving timing closure with a positive Worst Negative Slack (WNS) of 4.012 ns, confirming the design's robustness at the target frequency.</li>
+                        <li><strong>Architecture:</strong> Engineered a modular design that includes dedicated hazard detection and control units to resolve data and control hazards, ensuring correct program execution and minimizing pipeline stalls[cite: 24].</li>
+                        <li><strong>Performance:</strong> Synthesized the design at 100 MHz clock frequency, achieving timing closure with a Worst Negative Slack (WNS) of 4.472 ns, indicating a theoretical max frequency of ~180 MHz[cite: 22].</li>
+                        <li><strong>Optimization:</strong> Analyzed post-implementation metrics, optimizing for 142 mW power consumption and ~1.5k FF resource utilization[cite: 23].</li>
                     </ul>
 
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Challenges & Solutions</h3>
@@ -192,23 +225,21 @@
             </div>
         </section>
 
-        <!-- CNN Project Detail -->
         <section id="project-cnn" class="section">
             <div class="max-w-4xl mx-auto">
                 <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">CNN Accelerator & Golden Reference Verification</h2>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">CNN Accelerator & Verification</h2>
                  <div class="mt-6 prose-custom text-lg text-slate-700 dark:text-slate-300 max-w-none">
                     <img class="rounded-lg shadow-lg mb-8" src="assets/cnn_accelerator_schematic.png" alt="CNN Accelerator Schematic">
 
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
-                    <p>This project demonstrates a complete hardware design and verification flow, a critical skill in the semiconductor industry. I designed a Verilog-based hardware accelerator for CNN operations and rigorously tested it using a "golden reference" model written in Python.</p>
+                    <p>This project demonstrates a complete hardware design and verification flow, a critical skill in the semiconductor industry. I designed a Verilog-based hardware accelerator for CNN operations and rigorously tested it using a "golden reference" model written in Python[cite: 25, 28].</p>
                     
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
                     <ul>
-                        <li><strong>Python Reference Model:</strong> Developed a behavioral model in Python to perform Multiply-Accumulate (MAC) operations on MNIST image data. This script automatically generated "golden" reference test vectors, including feature maps and kernel values.</li>
-                        <li><strong>Hardware Design:</strong> Coded a CNN accelerator module in Verilog, with a focus on creating a high-throughput data path and an efficient FSM-based control unit.</li>
-                        <li><strong>Verification Framework:</strong> Created a Verilog testbench that read the test vectors from the Python model and fed them into the hardware design. The testbench then automatically compared the hardware's output against the golden reference, flagging any mismatches.</li>
-                        <li><strong>Result:</strong> Successfully validated the functional correctness of the Verilog MAC unit, ensuring its output was a bit-perfect match with the golden reference model for all test cases.</li>
+                        <li><strong>SIMD Architecture:</strong> Designed a SIMD-style convolution engine with 9 parallel MAC units for high-throughput 3x3 feature extraction[cite: 27].</li>
+                        <li><strong>Quantization:</strong> Implemented a software-based quantization model in Python to convert 32-bit floating-point weights to 8-bit integers (uint8), bridging software ML and hardware[cite: 30].</li>
+                        <li><strong>Verification Framework:</strong> Created a Verilog testbench that read the test vectors from the Python model and automatically compared the hardware's output against the golden reference, flagging mismatches[cite: 28].</li>
                     </ul>
 
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Challenges & Solutions</h3>
@@ -216,10 +247,6 @@
                         <li>
                             <strong>Challenge:</strong> The data flow logic within the convolution engine and output buffer was complex. Ensuring the hardware could correctly process streaming data without errors was difficult to conceptualize initially.
                             <br><strong>Solution:</strong> I carefully studied the data flow requirements and planned the FSM control logic before implementation. This allowed me to build a robust state machine that managed the data path correctly.
-                        </li>
-                        <li>
-                            <strong>Challenge:</strong> Verifying that the hardware was truly cycle-accurate and bit-perfect compared to the high-level Python model.
-                            <br><strong>Solution:</strong> I implemented a systematic, multi-stage verification strategy. First, I performed sanity checks with simple, self-created `.hex` files. Then, I used the Python script to generate complex, realistic test vectors from the MNIST dataset. By replacing the simple inputs with these "golden" inputs in my testbench, I could definitively prove the hardware's correctness.
                         </li>
                     </ul>
                     
@@ -233,7 +260,6 @@
             </div>
         </section>
 
-        <!-- Classifier Project Detail -->
         <section id="project-classifier" class="section">
              <div class="max-w-4xl mx-auto">
                 <a href="#" onclick="showSection('projects')" class="text-blue-600 dark:text-blue-400 font-semibold mb-8 inline-block">&larr; Back to Projects</a>
@@ -242,29 +268,20 @@
                     <img class="rounded-lg shadow-lg mb-8" src="assets/classifier_output.png" alt="MNIST Classifier Output Detail">
 
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Project Overview</h3>
-                    <p>This project showcases my skills in machine learning and software integration. It served as the motivational basis for my hardware acceleration projects by demonstrating the computational demands of neural networks.</p>
+                    <p>This project showcases my skills in machine learning and software integration. It served as the motivational basis for my hardware acceleration projects by demonstrating the computational demands of neural networks[cite: 31].</p>
                     
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Core Features</h3>
                     <ul>
-                        <li><strong>Objective:</strong> To design and implement a machine learning model that classifies handwritten digits from the MNIST dataset using a CNN and reproduces the identified digit through audio output.</li>
-                        <li><strong>Architecture & Technology:</strong> Built a Convolutional Neural Network using TensorFlow/Keras, composed of multiple convolutional and pooling layers for feature extraction, and a dropout layer to prevent overfitting.</li>
-                        <li><strong>Performance:</strong> After training on 60,000 images from the MNIST dataset, the model achieved a test accuracy of 98.4%, demonstrating robust performance across various handwriting styles.</li>
-                        <li><strong>Key Feature - Accessibility:</strong> The system incorporates a Text-to-Speech (TTS) engine (using gTTS) that provides real-time voice feedback of the predicted digit, making the application accessible for visually impaired users and interactive for educational purposes.</li>
+                        <li><strong>Objective:</strong> To design and implement a machine learning model that classifies handwritten digits from the MNIST dataset using a CNN and reproduces the identified digit through audio output[cite: 31, 33].</li>
+                        <li><strong>Performance:</strong> After training on 60,000 images from the MNIST dataset, the model achieved a test accuracy of 98.4%, demonstrating robust performance across various handwriting styles[cite: 33].</li>
+                        <li><strong>Key Feature - Accessibility:</strong> The system incorporates a Text-to-Speech (TTS) engine (using gTTS) that provides real-time voice feedback of the predicted digit[cite: 34].</li>
                     </ul>
 
                     <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200 mt-8 mb-4">Challenges & Solutions</h3>
                     <ul>
                         <li>
                             <strong>Challenge:</strong> I encountered significant difficulties installing the correct versions of the TensorFlow library and its dependencies on my local machine.
-                            <br><strong>Solution:</strong> To avoid setup delays and ensure a stable environment, I migrated the entire project to Google Colab. This allowed me to leverage a pre-configured, cloud-based platform with all necessary libraries readily available.
-                        </li>
-                        <li>
-                            <strong>Challenge:</strong> Due to system and time constraints, I could only run a limited number of training epochs, which capped the model's potential accuracy.
-                            <br><strong>Solution:</strong> Despite the constraints, I optimized the model architecture to achieve a high accuracy of 98.4% within the limited training window, demonstrating efficient model design.
-                        </li>
-                         <li>
-                            <strong>Challenge:</strong> I wanted to add a unique feature that went beyond simple visual classification.
-                            <br><strong>Solution:</strong> I integrated the gTTS (Google Text-to-Speech) library to provide real-time audio feedback of the classified digit. This not only enhanced the project but also added a valuable accessibility feature for visually impaired users.
+                            <br><strong>Solution:</strong> To avoid setup delays and ensure a stable environment, I migrated the entire project to Google Colab.
                         </li>
                     </ul>
 
@@ -277,7 +294,6 @@
             </div>
         </section>
 
-        <!-- Experience & Skills Section -->
         <section id="experience" class="section">
             <div class="grid lg:grid-cols-3 gap-12">
                 <div class="lg:col-span-2">
@@ -286,12 +302,12 @@
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Research Intern</h3>
                             <p class="text-md text-slate-600 dark:text-slate-400">Indian Institute of Astrophysics, Bengaluru</p>
-                            <p class="mt-2 text-slate-700 dark:text-slate-300">Conducted research supporting the Aditya L1 solar project under the guidance of Dr. Wageesh Mishra. Analyzed scientific literature on Coronal Emission Maps (CEMS) to identify existing research gaps, contributing to the team's effort to address current scientific questions.</p>
+                            <p class="mt-2 text-slate-700 dark:text-slate-300">Conducted research supporting the Aditya L1 solar project under the guidance of Dr. Wageesh Mishra[cite: 49, 50]. Analyzed scientific literature on Coronal Emission Maps (CEMS) to identify existing research gaps[cite: 51].</p>
                         </div>
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
                             <h3 class="text-xl font-semibold text-slate-800 dark:text-slate-100">Research Intern</h3>
                             <p class="text-md text-slate-600 dark:text-slate-400">Indian Institute of Technology, Roorkee</p>
-                            <p class="mt-2 text-slate-700 dark:text-slate-300">Worked on the quantum aspects of Young's double slit experiments under Dr. Akhilesh Kumar Mishra. Developed analytical models to compute wavelengths and frequencies of monochromatic and dichromatic waves, contributing to a deeper understanding of quantum interference phenomena.</p>
+                            <p class="mt-2 text-slate-700 dark:text-slate-300">Worked on the quantum aspects of Young's double slit experiments under Dr. Akhilesh Kumar Mishra[cite: 52, 53]. Developed analytical models to compute wavelengths and frequencies of monochromatic and dichromatic waves[cite: 54].</p>
                         </div>
                     </div>
                 </div>
@@ -301,28 +317,18 @@
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
                             <h4 class="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">Hardware & EDA</h4>
                             <ul class="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 marker:text-blue-600">
-                                <li>Verilog, RTL Design</li>
-                                <li>Xilinx Vivado, ModelSim</li>
-                                <li>EDA Scripting (Tcl)</li>
-                                <li>Synopsys TCAD Suite</li>
+                                <li>Verilog, SystemVerilog [cite: 15]</li>
+                                <li>Xilinx Vivado, ModelSim [cite: 14]</li>
+                                <li><strong>EDA Scripting: Tcl, Python</strong> [cite: 15]</li>
+                                <li>Synopsys TCAD Suite [cite: 14]</li>
                             </ul>
                         </div>
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
-                            <h4 class="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">Software & Programming</h4>
-                             <ul class="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 marker:text-blue-600">
-                                <li>Python (TensorFlow, Keras, NumPy)</li>
-                                <li>C Programming</li>
-                                <li>Git, GitHub</li>
-                            </ul>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
-                            <h4 class="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">Core Concepts</h4>
-                             <ul class="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 marker:text-blue-600">
-                                <li>Digital Logic Design</li>
-                                <li>Computer Architecture</li>
-                                <li>Pipelining & Hazard Detection</li>
-                                <li>ASIC/FPGA Design Flow</li>
-                                <li>Finite State Machine (FSM) Design</li>
+                            <h4 class="font-semibold text-lg text-slate-800 dark:text-slate-100 mb-2">Software</h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 marker:text-blue-600">
+                                <li>Python (TensorFlow, NumPy) [cite: 15]</li>
+                                <li>C Programming [cite: 15]</li>
+                                <li>Git, GitHub [cite: 17]</li>
                             </ul>
                         </div>
                     </div>
@@ -330,7 +336,6 @@
             </div>
         </section>
 
-        <!-- Recommendations Section -->
         <section id="recommendations" class="section">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Recommendations</h2>
@@ -350,7 +355,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="section">
              <div class="text-center">
                 <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Get In Touch</h2>
@@ -431,6 +435,5 @@
             updateThemeIcons(document.documentElement.classList.contains('dark'));
         });
     </script>
-
 </body>
 </html>
